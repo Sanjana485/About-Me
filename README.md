@@ -41,7 +41,7 @@ Patients with rare autoimmune diseases like Lupus, Sjogren's, and MCTD wait 6+ y
 ---
 
 ### 🎮 Doppelgamer - Behavioral Cloning + LLM Inference Benchmarking
-🔗 [Repository](https://github.com/sanjana-garimella/doppelgamer)
+🔗 [Repository](https://github.com/sanjana-garimella/dopplegamer)
 
 LLM inference benchmark using game environments as stateful, multi-turn workload generators — the condition most production agents run under but most benchmarks don't test. Measures KV-cache memory growth, TTFT, TPOT, scheduling overhead, and prefix cache hit rate across HuggingFace, vLLM, Preble, and InferCept as context accumulates across turns. Also trains NGramImpostor and LSTMImpostor behavioral clones from player gameplay and runs Turing tests to measure clone detection rate.
 
