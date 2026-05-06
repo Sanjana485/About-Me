@@ -27,7 +27,7 @@ Overall, my work focuses on building AI systems that are not only model-centric 
 
 ---
 
-### 🧬 MediRare — Rare Disease Misdiagnosis Detection
+### 🧬 MediRare - Rare Disease Misdiagnosis Detection
 🔗 [Repository](https://github.com/sanjana-garimella/MediRare) · *Active Research · Project Lead · AISC San Diego · Targeting AMIA / JBI*
 
 Patients with rare autoimmune diseases like Lupus, Sjogren's, and MCTD wait 6+ years on average for a correct diagnosis. MediRare mines thousands of PubMed case reports to build a structured misdiagnosis knowledge graph, then connects an LLM reasoning agent to that graph — grounded in Orphanet, OMIM, and HPO — to generate explainable clinical reports with traceable reasoning chains.
@@ -40,7 +40,7 @@ Patients with rare autoimmune diseases like Lupus, Sjogren's, and MCTD wait 6+ y
 
 ---
 
-### 🎮 Doppelgamer — Behavioral Cloning + LLM Inference Benchmarking
+### 🎮 Doppelgamer - Behavioral Cloning + LLM Inference Benchmarking
 🔗 [Repository](https://github.com/sanjana-garimella/doppelgamer)
 
 LLM inference benchmark using game environments as stateful, multi-turn workload generators — the condition most production agents run under but most benchmarks don't test. Measures KV-cache memory growth, TTFT, TPOT, scheduling overhead, and prefix cache hit rate across HuggingFace, vLLM, Preble, and InferCept as context accumulates across turns. Also trains NGramImpostor and LSTMImpostor behavioral clones from player gameplay and runs Turing tests to measure clone detection rate.
@@ -51,7 +51,7 @@ LLM inference benchmark using game environments as stateful, multi-turn workload
 
 ---
 
-### 🏆 GridGreen — Carbon-Aware ML Copilot
+### 🏆 GridGreen - Carbon-Aware ML Copilot
 🔗 [Repository](https://github.com/sanjana-garimella/green-watts) · *DataHacks 2026 · Cloud Track Winner · MLH Best Use of Snowflake API*
 
 AST-based carbon estimator using FLOPs scaling laws + MiniLM retrieval index over 58 curated model-swap pairs with benchmark retention citations + 48-hour EIA grid forecast for lowest-carbon scheduling. Delivered as a FastAPI web app and MCP server compatible with Claude Desktop, Cursor, and Claude Code.
@@ -64,7 +64,7 @@ AST-based carbon estimator using FLOPs scaling laws + MiniLM retrieval index ove
 
 ---
 
-### 🏥 MediDB — Multi-Database Clinical Decision Support
+### 🏥 MediDB - Multi-Database Clinical Decision Support
 🔗 [Repository](https://github.com/eemilycchen/drug_safety_and_recommendation)
 
 Patient ID + proposed drug → PostgreSQL EHR lookup → BioLORD-2023 vector similarity search over 50K+ FAERS adverse event records (Qdrant HNSW) → 10 alternatives ranked by similarity and FAERS % serious → Neo4j drug interaction validation → severity score with full evidence links. Four databases chosen for structural fit, not convenience.
@@ -91,7 +91,7 @@ Top-N recommendation under 99.99% sparsity (Epinions dataset). Standard collabor
 
 ---
 
-### 🤖 DSC 291 ML Systems (Prof. Hao Zhang) — Spring 2026
+### 🤖 ML Systems — Spring 2026
 
 - Reverse-mode autodiff engine from scratch; trained a decoder-only transformer using only this engine — no `loss.backward()`
 - Triton fused matmul+add+ReLU kernel on NVIDIA A10: shared memory tiling, fp16/fp32 accumulation, operator fusion, block config grid search
@@ -109,7 +109,7 @@ Surprisal-based evaluation of LM syntactic knowledge using BLiMP minimal pairs a
 
 ## 🧰 Technical Skills
 
-Work across the full ML stack — from writing GPU kernels and distributed training primitives (Triton, MPI) to building retrieval pipelines (Qdrant, FAISS, ChromaDB), LLM agents with grounded reasoning (LangChain, LangGraph, MCP, vLLM), and production data infrastructure (Dask, PyArrow, Databricks, AWS). Primary language is Python; also use SQL, TypeScript, R, and Bash regularly.
+Work across the full ML stack — from writing GPU kernels and distributed training primitives (Triton, MPI) to building retrieval pipelines (Qdrant, FAISS, ChromaDB), LLM agents with grounded reasoning (LangChain, LangGraph, MCP, vLLM), and production data infrastructure (Dask, PyArrow, Databricks, AWS). Primary language is Python; also use SQL, Java, R, and C++ frequently.
 
 **ML & DL** — PyTorch · scikit-learn · HuggingFace Transformers · XGBoost · Stable-Baselines3 · Detectron2 · pyGAM
 
@@ -129,13 +129,13 @@ Work across the full ML stack — from writing GPU kernels and distributed train
 
 ## 🏅 Achievements
 
-🏆 **DataHacks 2026 — Cloud Track Winner + MLH Best Use of Snowflake API** for GridGreen
+🏆 **DataHacks 2026: Cloud Track Winner + MLH Best Use of Snowflake API** for GridGreen
 
-🏆 **Star of the Month — IBM** for enhancing open-source vulnerability tracking and automating onboarding workflows across global teams
+🏆 **Star of the Month, IBM** for enhancing open-source vulnerability tracking and automating onboarding workflows across global teams
 
-🌟 **Infrastructure All-Hands Recognition — IBM** for streamlining SPbD security onboarding across 18 subsystems
+🌟 **Infrastructure All-Hands Recognition, IBM** for streamlining SPbD security onboarding across 18 subsystems
 
-🎖 **People's Choice Award — IBM Developer Jumpstart** for a LLaMA-based provisioning system that cut multi-cloud infrastructure costs by 40%
+🎖 **People's Choice Award, IBM Developer Jumpstart** for a LLaMA-based provisioning system that cut multi-cloud infrastructure costs by 40%
 
 ---
 
@@ -144,5 +144,7 @@ Work across the full ML stack — from writing GPU kernels and distributed train
 🤖 [Tackling Cold-Start Recommendations with Socially-Aware Spatial Markov Models](https://www.linkedin.com/pulse/tackling-cold-start-recommendations-socially-aware-markov-garimella-9sufc)
 
 📊 [Role of Data Science in Healthcare](https://www.linkedin.com/pulse/video-blog-role-data-science-health-care-g-g-sanjana)
+
+⚙️ [Carbon-aware Machine Learning Systems: Hyperparameters and Hidden Compute Costs](https://www.linkedin.com/pulse/carbon-footprint-hyperparameter-weve-been-overlooking-garimella-7bbfc)
 
 ---
