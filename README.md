@@ -6,19 +6,7 @@
 
 ---
 
-Graduate student at UC San Diego working on machine learning systems, large-scale data engineering, and language model–driven AI systems. My work sits at the intersection of data infrastructure, retrieval systems, and agent-based LLM applications, with an emphasis on building systems that remain reliable under scale, distribution, and real-world operational constraints.
-
-Across multiple projects, I design and implement end-to-end pipelines that transform large, heterogeneous datasets into structured representations for modeling and decision-making. This includes distributed processing over billions of records, multi-database architectures that combine relational, graph, and vector stores, and retrieval systems that integrate embedding-based search with structured filtering. A recurring focus is ensuring that these systems are not only performant but also auditable, reproducible, and resilient to data drift and schema variability.
-
-On the language model side, my work involves building retrieval-augmented and tool-augmented systems where LLMs function as reasoning components inside larger pipelines rather than standalone interfaces. This includes designing ReAct-style agent workflows, structured tool invocation patterns, and multi-step reasoning systems grounded in external knowledge sources such as biomedical literature and structured ontologies. I also work with inference-layer constraints such as KV cache behavior, batching strategies, and latency–throughput trade-offs in serving frameworks like vLLM, where system-level efficiency directly affects usability at scale.
-
-In parallel, I work on multi-agent and behavioral modeling systems where learned policies, behavioral cloning, and reinforcement learning agents operate in interactive environments. These systems are used both for evaluation and benchmarking of inference systems and for studying behavioral consistency, fidelity, and generalization under sequential decision-making settings.
-
-A significant portion of my work also involves multimodal and domain-specific applications, including biomedical NLP systems that extract structured knowledge from scientific literature and clinical datasets, as well as recommendation and decision-support systems that combine graph-based reasoning, vector similarity search, and probabilistic modeling. These systems emphasize traceability of outputs and grounding in verifiable data sources rather than purely generative outputs.
-
-At the infrastructure level, I build distributed data pipelines and ML systems that integrate batch processing frameworks, cloud services, and multi-store architectures. This includes optimizing data ingestion, compression, and transformation workflows, as well as designing systems that scale across high-volume datasets while maintaining correctness guarantees through schema enforcement, indexing strategies, and validation layers.
-
-Overall, my work focuses on building AI systems that are not only model-centric but system-centric—where data pipelines, retrieval mechanisms, inference efficiency, and agentic reasoning components are designed together to produce reliable, scalable, and interpretable outcomes.
+I'm a grad student at UC San Diego, and I tend to get drawn into problems where data exists but sits in the wrong form to be useful. Rare autoimmune diseases like Lupus and Sjogren's take an average of 6 years to diagnose correctly, misdiagnosis patterns are scattered across thousands of unstructured PubMed case reports. MediRare extracts those events with BioBERT, builds a disease-confusion graph, and connects an MCP reasoning agent so a clinician gets an explainable report with every source linked. Doppelgamer came from thinking about how LLM inference benchmarks typically test single prompts, while production agents run across long, stateful conversations where KV-cache pressure and scheduling overhead become the real constraints, I used game environments as multi-turn workload generators to measure that across vLLM, Preble, and InferCept. GridGreen estimates training FLOPs from your code's AST, checks the EIA 48-hour grid forecast, and recommends lower-carbon scheduling and model alternatives. On the infrastructure side, I've processed 3.4B taxi records on S3, built a four-database clinical decision pipeline where each store was chosen for a specific structural reason, and written autodiff and Triton kernels when I needed visibility below what PyTorch exposes.
 
 
 ---
@@ -30,11 +18,11 @@ Overall, my work focuses on building AI systems that are not only model-centric 
 ### 🧬 MediRare - Rare Disease Misdiagnosis Detection
 🔗 [Repository](https://github.com/sanjana-garimella/MediRare) · *Active Research · Project Lead · AISC San Diego · Targeting AMIA / JBI*
 
-Patients with rare autoimmune diseases like Lupus, Sjogren's, and MCTD wait 6+ years on average for a correct diagnosis. MediRare mines thousands of PubMed case reports to build a structured misdiagnosis knowledge graph, then connects an LLM reasoning agent to that graph — grounded in Orphanet, OMIM, and HPO — to generate explainable clinical reports with traceable reasoning chains.
+Patients with rare autoimmune diseases like Lupus, Sjogren's, and MCTD wait 6+ years on average for a correct diagnosis. MediRare mines thousands of PubMed case reports to build a structured misdiagnosis knowledge graph, then connects an LLM reasoning agent to that graph, grounded in Orphanet, OMIM, and HPO, to generate explainable clinical reports with traceable reasoning chains.
 
-- **CV pipeline** — ResNet/ViT classifying medical figures (rash photos, histology slides, lab charts) extracted from open-access PubMed PDFs
-- **NLP pipeline** — BioBERT extracting misdiagnosis events → disease confusion knowledge graph via NetworkX
-- **MCP reasoning agent** — vLLM + LangChain querying the confusion graph and structured rare disease databases
+- **CV pipeline** : ResNet/ViT classifying medical figures (rash photos, histology slides, lab charts) extracted from open-access PubMed PDFs
+- **NLP pipeline** : BioBERT extracting misdiagnosis events → disease confusion knowledge graph via NetworkX
+- **MCP reasoning agent** : vLLM + LangChain querying the confusion graph and structured rare disease databases
 
 `PyTorch · BioBERT · PubMedBERT · vLLM · LangChain · MCP · FAISS · ChromaDB · NetworkX · Streamlit`
 
@@ -43,7 +31,7 @@ Patients with rare autoimmune diseases like Lupus, Sjogren's, and MCTD wait 6+ y
 ### 🎮 Doppelgamer - Behavioral Cloning + LLM Inference Benchmarking
 🔗 [Repository](https://github.com/sanjana-garimella/dopplegamer)
 
-LLM inference benchmark using game environments as stateful, multi-turn workload generators — the condition most production agents run under but most benchmarks don't test. Measures KV-cache memory growth, TTFT, TPOT, scheduling overhead, and prefix cache hit rate across HuggingFace, vLLM, Preble, and InferCept as context accumulates across turns. Also trains NGramImpostor and LSTMImpostor behavioral clones from player gameplay and runs Turing tests to measure clone detection rate.
+LLM inference benchmark using game environments as stateful, multi-turn workload generators , the condition most production agents run under but most benchmarks don't test. Measures KV-cache memory growth, TTFT, TPOT, scheduling overhead, and prefix cache hit rate across HuggingFace, vLLM, Preble, and InferCept as context accumulates across turns. Also trains NGramImpostor and LSTMImpostor behavioral clones from player gameplay and runs Turing tests to measure clone detection rate.
 
 22 environments · 9 agent types (PPO, BC+RL, ReAct LLM, adaptive router) · 7-table SQLite schema · 130 tests passing
 
@@ -76,7 +64,7 @@ Patient ID + proposed drug → PostgreSQL EHR lookup → BioLORD-2023 vector sim
 ### 🚕 NYC Taxi Big Data Pipeline
 🔗 [Repository](https://github.com/blue-octopus235/dsc291-2026)
 
-Distributed ETL pipeline over 3.4B NYC taxi records (57GB) on S3 — reduced 3.41B rows to 2.9M aggregated rows with 660x Parquet compression, cut runtime from 40 to 15 minutes via adaptive PyArrow batch tuning. Distributed PCA with Davis-Kahan stability bounds, bootstrap validation, and geospatial demand analysis via interactive Folium maps.
+Distributed ETL pipeline over 3.4B NYC taxi records (57GB) on S3 , reduced 3.41B rows to 2.9M aggregated rows with 660x Parquet compression, cut runtime from 40 to 15 minutes via adaptive PyArrow batch tuning. Distributed PCA with Davis-Kahan stability bounds, bootstrap validation, and geospatial demand analysis via interactive Folium maps.
 
 `Python · Dask · PyArrow · AWS S3/EC2 · Folium · geopandas · scipy · XGBoost`
 
@@ -85,23 +73,23 @@ Distributed ETL pipeline over 3.4B NYC taxi records (57GB) on S3 — reduced 3.4
 ### 🤖 Socially-Aware Recommender System
 🔗 [Repository](https://github.com/sanjana-garimella/socially-aware-spatial-markov-random-field-for-personalized-recommendation)
 
-Top-N recommendation under 99.99% sparsity (Epinions dataset). Standard collaborative filtering collapses at this density — AUC 0.4997, essentially random. Proposed a Bayesian Markov model with MRF social smoothing that propagates preference signals through directed trust edges and PageRank, reaching AUC 0.6248 — 25% over the Jaccard baseline and 6% over the IJCAI 2017 paper. Deployed with an A/B comparison UI on Hugging Face Spaces.
+Top-N recommendation under 99.99% sparsity (Epinions dataset). Standard collaborative filtering collapses at this density , AUC 0.4997, essentially random. Proposed a Bayesian Markov model with MRF social smoothing that propagates preference signals through directed trust edges and PageRank, reaching AUC 0.6248 , 25% over the Jaccard baseline and 6% over the IJCAI 2017 paper. Deployed with an A/B comparison UI on Hugging Face Spaces.
 
 `Python · scikit-learn · NetworkX · FastAPI · Docker · Hugging Face Spaces`
 
 ---
 
-### 🤖 ML Systems — Spring 2026
+### 🤖 ML Systems · Spring 2026
 
-- Reverse-mode autodiff engine from scratch; trained a decoder-only transformer using only this engine — no `loss.backward()`
+- Reverse-mode autodiff engine from scratch; trained a decoder-only transformer using only this engine, no `loss.backward()`
 - Triton fused matmul+add+ReLU kernel on NVIDIA A10: shared memory tiling, fp16/fp32 accumulation, operator fusion, block config grid search
 - MPI `myAllreduce` and `myAlltoall` from point-to-point primitives across 8 processes; tensor + data parallel FC layer sharding
 
 ---
 
-### 📐 Language Models as Cognitive Models — Spring 2026
+### 📐 Language Models as Cognitive Models · Spring 2026
 
-Surprisal-based evaluation of LM syntactic knowledge using BLiMP minimal pairs across anaphor agreement, wh-island constraints, and Principle A c-command. Built 3 custom minimal pair datasets; tracked Pythia-70m across training checkpoints. Pythia-160m outperforms 70m on distributional tasks, underperforms on structural ones — scale does not substitute for what the training data encodes.
+Surprisal-based evaluation of LM syntactic knowledge using BLiMP minimal pairs across anaphor agreement, wh-island constraints, and Principle A c-command. Built 3 custom minimal pair datasets; tracked Pythia-70m across training checkpoints. Pythia-160m outperforms 70m on distributional tasks, underperforms on structural ones , scale does not substitute for what the training data encodes.
 
 `minicons · HuggingFace · Pythia · GPT-2 · BERT · BLiMP · PyTorch`
 
@@ -109,21 +97,13 @@ Surprisal-based evaluation of LM syntactic knowledge using BLiMP minimal pairs a
 
 ## 🧰 Technical Skills
 
-Work across the full ML stack — from writing GPU kernels and distributed training primitives (Triton, MPI) to building retrieval pipelines (Qdrant, FAISS, ChromaDB), LLM agents with grounded reasoning (LangChain, LangGraph, MCP, vLLM), and production data infrastructure (Dask, PyArrow, Databricks, AWS). Primary language is Python; also use SQL, Java, R, and C++ frequently.
-
-**ML & DL** — PyTorch · scikit-learn · HuggingFace Transformers · XGBoost · Stable-Baselines3 · Detectron2 · pyGAM
-
-**LLMs, NLP & Agents** — LLaMA (fine-tuning) · BioBERT · PubMedBERT · BioLORD-2023 · Sentence-Transformers · LangChain · LangGraph · vLLM · MCP · RAG
-
-**ML Systems & GPU** — Triton · MPI/mpi4py · Tensor + data parallelism · Autodiff from scratch · fp16/fp32 mixed precision
-
-**Vector Search** — Qdrant (HNSW, payload indexes) · FAISS · ChromaDB · Snowflake Cortex
-
-**Data Engineering** — Dask · PyArrow · Delta Lake · Databricks (DLT, MLflow) · Prophet · Distributed ETL
-
-**Databases** — PostgreSQL · Neo4j · MongoDB · Qdrant · SQLite · InfluxDB · Snowflake · MySQL
-
-**Infrastructure** — FastAPI · Next.js 15 · Docker · AWS (S3, EC2, SageMaker) · NVIDIA Brev · W&B · Jenkins · pytest · Linux
+Python is my primary language. I also use SQL, Java, and C++ when needed.
+ML & DL : PyTorch · HuggingFace Transformers · XGBoost · scikit-learn
+LLMs & Agents : Open-source (LLaMA, Qwen, DeepSeek, Mistral, BioBERT, PubMedBERT, Phi) · Closed-source (OpenAI, Anthropic, Gemini) ·  LangChain · LangGraph · vLLM · MCP
+ML Systems : Triton · MPI · Tensor + data parallelism · Autodiff from scratch · fp16/fp32 mixed precision
+Retrieval & Databases : Qdrant · FAISS · ChromaDB · PostgreSQL · Neo4j · MongoDB · Snowflake
+Data Engineering : Dask · PyArrow · Databricks · Delta Lake · Distributed ETL
+Infrastructure : FastAPI · Docker · AWS (S3, EC2, SageMaker) · W&B · Linux
 
 ---
 
