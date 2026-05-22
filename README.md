@@ -42,13 +42,13 @@ LLM inference benchmark using game environments as stateful, multi-turn workload
 ---
 
 ### 🏆 GridGreen - Carbon-Aware ML Copilot
-🔗 [Repository](https://github.com/sanjana-garimella/green-watts) · *DataHacks 2026 · Cloud Track Winner · MLH Best Use of Snowflake API*
+🔗 [Repository]((https://github.com/datahacks-2026/grid-green)) · *DataHacks 2026 · Cloud Track Winner · MLH Best Use of Snowflake API*
 
 AST-based carbon estimator using FLOPs scaling laws + MiniLM retrieval index over 58 curated model-swap pairs with benchmark retention citations + 48-hour EIA grid forecast for lowest-carbon scheduling. Delivered as a FastAPI web app and MCP server compatible with Claude Desktop, Cursor, and Claude Code.
 
-| Success rate | Avg compute reduction | CO2 reduction | Latency |
-|---|---|---|---|
-| 100% (12/12) | 77.6% | 37.0% | <20ms |
+| Avg compute reduction | CO2 reduction | Latency |
+|---|---|---|
+| 77.6% | 37.0% | <20ms |
 
 `Python · FastAPI · Next.js 15 · Sentence-Transformers · Snowflake Cortex · Databricks DLT · AWS SageMaker · Prophet · MCP`
 
