@@ -81,17 +81,17 @@ Top-N recommendation under 99.99% sparsity (Epinions dataset). Standard collabor
 
 ---
 
-### 🤖 ML Systems · Spring 2026
+### 🤖 ML Systems 
 
-- Reverse-mode autodiff engine from scratch; trained a decoder-only transformer using only this engine, no `loss.backward()`
-- Triton fused matmul+add+ReLU kernel on NVIDIA A10: shared memory tiling, fp16/fp32 accumulation, operator fusion, block config grid search
-- MPI `myAllreduce` and `myAlltoall` from point-to-point primitives across 8 processes; tensor + data parallel FC layer sharding
+Built a reverse-mode autodiff engine from scratch and trained a decoder-only transformer on it without ever calling `.backward()`. Wrote Triton GPU kernels with shared memory tiling and operator fusion. Implemented MPI allreduce/alltoall from point-to-point primitives and applied tensor and data parallelism across 8 processes. Studied LLM inference in depth — vLLM, PagedAttention, FlashAttention, quantization, speculative decoding — through coursework and guest lectures from the engineers who built them.
+
 
 ---
 
-### 📐 Language Models as Cognitive Models · Spring 2026
+### 📐 Language Models as Cognitive Models 
 
-Surprisal-based evaluation of LM syntactic knowledge using BLiMP minimal pairs across anaphor agreement, wh-island constraints, and Principle A c-command. Built 3 custom minimal pair datasets; tracked Pythia-70m across training checkpoints. Pythia-160m outperforms 70m on distributional tasks, underperforms on structural ones , scale does not substitute for what the training data encodes.
+Explored LLMs as cognitive test subjects across language acquisition, processing, and mechanistic interpretability. Co-presented on Sparse Feature Circuits (Marks et al., ICLR 2025) — ~100 interpretable SAE features explain model behavior on syntax tasks where neuron circuits need thousands, and circuits are legible enough to enable targeted model editing. For the BLiMP evaluation, built custom minimal pair datasets across relative clause agreement, wh-islands, and Principle A, tracking Pythia across training checkpoints. Key finding: Pythia-160M beats 70M on distributional tasks but fails on structural ones — scale doesn't fix what the training data never encoded.
+
 
 `minicons · HuggingFace · Pythia · GPT-2 · BERT · BLiMP · PyTorch`
 
